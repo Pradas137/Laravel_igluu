@@ -9,9 +9,14 @@
 </head>
 <body>
     <h1>Index de POST</h1>
-    <form id="formulario" method="POST" action="/post">
+    <form id="formulario" method="POST" action="/post" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <label>Text</label>
         <textarea name="post_text" id="post_text" cols="30" rows="10"></textarea>
-        <br><br>
+        <br>
+        <br>
+        <label>Images</label>
+        <input type="file" name="images">
         <input type="submit" value="save">
     </form>
 </body>

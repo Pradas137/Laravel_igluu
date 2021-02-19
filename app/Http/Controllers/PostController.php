@@ -43,10 +43,15 @@ class PostController extends Controller
         $post = new Post;
         $post->user_id = 1;
         $post->text = $request->post_text;
+        $path = $request->file('images')->getRealPath();
+        $logo = file_get_contents($path);
+        $base64 = base64_encode($logo);
+        $post->images = $base64;
         $post->save();
 
+
         $posts = Post::all();
-        return view("post.index",["post" =>$posts]);
+        return view("post.index",["post" =>$posts])->with('success','Post created successfully!');
     }
 
     /**
@@ -92,5 +97,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post->delete();
+        return redirect('post')->with('success','Post deleted successfully!');
     }
 }
