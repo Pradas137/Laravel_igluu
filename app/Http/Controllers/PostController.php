@@ -40,15 +40,13 @@ class PostController extends Controller
     {
         //
 
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-        ]);
+        $post = new Post;
+        $post->user_id = 1;
+        $post->text = $request->post_text;
+        $post->save();
 
-        Post::create($request->all());
-     
-        return redirect()->route('posts.index')
-                        ->with('success','Post created successfully.');
+        $posts = Post::all();
+        return view("post.index",["post" =>$posts]);
     }
 
     /**

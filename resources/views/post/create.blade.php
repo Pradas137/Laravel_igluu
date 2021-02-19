@@ -1,29 +1,20 @@
-@section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Create Post</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('post.index') }}"> Back</a>
-        </div>
-    </div>
-</div>
-   
-<form action="{{ route('post.store') }}" method="POST">
-    @csrf
-  
-     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>TEXT:</strong>
-                <input type="text" name="title" class="form-control" placeholder="Enter texto">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ asset('resources/post/css/createPost.css') }}" rel="stylesheet">
+    <title>Post Form</title>
+</head>
+<body>
+    <h1>Index de POST</h1>
+    <form id="formulario" method="POST" action="/post">
+        <textarea name="post_text" id="post_text" cols="30" rows="10"></textarea>
+        <br><br>
+        <input type="submit" value="save">
+    </form>
+</body>
+</html>
    
 </form>
-@endsection
