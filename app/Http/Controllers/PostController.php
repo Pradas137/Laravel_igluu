@@ -50,7 +50,7 @@ class PostController extends Controller
         $post->save();
 
 
-        $posts = Post::orderBy('created_at','asc')->get();
+        $posts = Post::orderBy('created_at','desc')->get();
         return view("post.index",["post" =>$posts])->with('success','Post created successfully!');
     }
 

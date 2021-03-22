@@ -8,7 +8,8 @@
     <title>Posts</title>
 </head>
 <body>
-    <h1 class="title">Index de POST</h1>
+    <h1 class="title">Index de POST</h1><br>
+    <p><a href="/create">Crear Post</a></p><br>
     <table class="table table-bordered">
         <thead>
             <tr>
